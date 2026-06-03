@@ -1,0 +1,52 @@
+{
+  "name": "coc-roslyn-vbnet",
+  "version": "0.1.0",
+  "description": "VB.NET language support via Roslyn LSP for coc.nvim",
+  "main": "lib/index.js",
+  "engines": {
+    "coc": "^0.0.82"
+  },
+  "activationEvents": [
+    "onLanguage:vb",
+    "onLanguage:vbnet"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "coc-roslyn-vbnet",
+      "properties": {
+        "roslyn-vbnet.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable VB.NET language server"
+        },
+        "roslyn-vbnet.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to Microsoft.CodeAnalysis.LanguageServer.dll (leave empty to use vb-ls)"
+        },
+        "roslyn-vbnet.useVbLs": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use vb-ls dotnet tool (has --autoLoadProjects support)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc --watch -p tsconfig.json",
+    "prepublishOnly": "tsc -p tsconfig.json"
+  },
+  "files": [
+    "lib",
+    "package.json",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "coc.nvim": "^0.0.82",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {}
+}
